@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="triangle" class="v5.spring.di.xml.constructor.Triangle">
+		<!--  Constructor injection of primitive with param type -->
+		<constructor-arg type="java.lang.String" value="Triangle drawn"/>
+	</bean>
+	
+		 
+	<bean id="circle" class="v5.spring.di.xml.constructor.Circle">
+		<!--  Constructor injection of primitive with param type -->
+		<constructor-arg type="java.lang.String" value="Circle drawn"/>
+	</bean>
+		
+	<bean id="draw-triangle" class="v5.spring.di.xml.constructor.DrawApp">
+		<!--  Constructor injection of user object with param type-->
+		<constructor-arg type="v5.spring.di.xml.constructor.Shape" ref="triangle"/>
+	</bean>
+	
+	<bean id="draw-circle" class="v5.spring.di.xml.constructor.DrawApp">
+		<!--  Constructor injection of user object with param type-->
+		<constructor-arg type="v5.spring.di.xml.constructor.Shape" ref="circle"/>
+	</bean>
+	
+
+</beans>

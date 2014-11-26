@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean id="triangle" class="v23.spring.di.eventhandling.Triangle">
+		<!--  Setter injection of primitive -->
+		<property name="message" value = "Triangle drawn"></property> 
+	</bean>
+	
+	<bean id="circle" class="v23.spring.di.eventhandling.Circle">
+		<!--  Setter injection of primitive -->
+		<property name="message" value = "Circle drawn"></property> 
+	</bean>
+	
+	<bean id="draw-triangle" class="v23.spring.di.eventhandling.DrawApp">
+		<!--  Setter injection of user object -->
+		<property name="shape" ref="triangle"></property> 
+	</bean>
+	
+	<bean id="draw-circle" class="v23.spring.di.eventhandling.DrawApp">
+		<!--  Setter injection of user object -->
+		<property name="shape" ref="circle"></property> 
+	</bean>
+	
+	
+	<context:annotation-config/>
+
+	<context:component-scan base-package="v23.spring.di.eventhandling">
+	
+	</context:component-scan>
+</beans>

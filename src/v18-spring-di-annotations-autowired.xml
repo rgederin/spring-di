@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="triangle" class="v18.spring.di.annotations.autowired.Triangle">
+		<!--  Setter injection of primitive -->
+		<property name="message" value = "Triangle drawn"></property> 
+	</bean>
+	
+	<bean id="shape" class="v18.spring.di.annotations.autowired.Circle">
+		<!--  Setter injection of primitive -->
+		<property name="message" value = "Circle drawn"></property> 
+	</bean>
+	
+
+	<bean id="draw-triangle" class="v18.spring.di.annotations.autowired.DrawApp">
+		<!--  Setter injection of user object -->
+		<property name="shape" ref="triangle"></property> 
+	</bean>
+	
+	<bean id="draw-circle" class="v18.spring.di.annotations.autowired.DrawApp"/>
+		
+	
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+	
+</beans>

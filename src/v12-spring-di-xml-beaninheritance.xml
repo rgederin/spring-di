@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="triangle" class="v12.spring.di.xml.beaninheritance.Triangle">
+		<!--  Setter injection of primitive -->
+		<property name="message" value = "Triangle drawn"></property> 
+	</bean>
+	
+	<bean id="circle" class="v12.spring.di.xml.beaninheritance.Circle">
+		<!--  Setter injection of primitive -->
+		<property name="message" value = "Circle drawn"></property> 
+	</bean>
+	
+
+
+	<bean id="parent-shape" class="v12.spring.di.xml.beaninheritance.DrawApp">
+		<property name="message" value = "This is Draw App!!"></property> 
+	</bean>
+	
+	<!-- Bean inheritance-->
+	<bean id="draw-triangle" class="v12.spring.di.xml.beaninheritance.DrawApp" parent="parent-shape">
+		<!--  Setter injection of user object -->
+		<property name="shape" ref="triangle"></property> 
+	</bean>
+	
+	<bean id="draw-circle" class="v12.spring.di.xml.beaninheritance.DrawApp" parent="parent-shape">
+		<!--  Setter injection of user object -->
+		<property name="shape" ref="circle"></property> 
+	</bean>
+	
+	
+</beans>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	
+	
+	
+	<bean id="draw-triangle" class="v7.spring.di.xml.innerbean.DrawApp">
+		<!--  Setter injection of user object -->
+		<property name="shape">
+			<!--  Inner bean -->
+			<bean class="v7.spring.di.xml.innerbean.Triangle">
+				<property name="message" value = "Triangle drawn"></property> 
+			</bean>
+		</property> 
+	</bean>
+	
+	
+	<bean id="draw-circle" class="v7.spring.di.xml.innerbean.DrawApp">
+		<!--  Setter injection of user object -->
+		<property name="shape">
+			<!--  Inner bean -->
+			<bean class="v7.spring.di.xml.innerbean.Circle">
+				<!--  Setter injection of primitive -->
+				<property name="message" value = "Circle drawn"></property> 
+			</bean>
+		</property> 
+	</bean>
+	
+	
+</beans>
